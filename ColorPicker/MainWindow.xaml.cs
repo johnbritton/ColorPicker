@@ -30,14 +30,14 @@ namespace ColorPicker
             {
                 using (var bmpGraphics = Graphics.FromImage(screenBmp))
                 {
-                    bmpGraphics.CopyFromScreen(e.Location.X - (previewWidth/2), e.Location.Y - (previewHeight/2), 0, 0, new System.Drawing.Size(previewWidth, previewHeight));
+                    bmpGraphics.CopyFromScreen(e.Location.X - (previewWidth / 2), e.Location.Y - (previewHeight / 2), 0, 0, new System.Drawing.Size(previewWidth, previewHeight));
                     var bmpSource = Imaging.CreateBitmapSourceFromHBitmap(
                         screenBmp.GetHbitmap(),
                         IntPtr.Zero,
                         Int32Rect.Empty,
                         BitmapSizeOptions.FromEmptyOptions());
                     previewImg.Source = bmpSource;
-                    var color = screenBmp.GetPixel(previewWidth/2, previewWidth/2);
+                    var color = screenBmp.GetPixel(previewWidth / 2, previewWidth / 2);
                     setSelectedColor(new System.Windows.Media.Color() { R = color.R, G = color.G, B = color.B, A = color.A });
                 }
             }
